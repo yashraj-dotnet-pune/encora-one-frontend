@@ -4,3 +4,20 @@
                 templateParams, 
                 'KGF2e296803-07r4r'   // Replace with your Public Key
             );
+
+            {/* --- HERO SECTION --- */}
+      <div className="relative w-full h-screen overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <FloatingLines 
+            enabledWaves={['top', 'middle', 'bottom']}
+            lineCount={[8, 8, 8]}
+            lineDistance={[8, 8, 8]}
+            bendRadius={4.0}
+            bendStrength={0.5}
+            interactive={true}
+            parallax={true}
+            parallaxStrength={0.1}
+            animationSpeed={0.5}
+            linesGradient={['#3b82f6', '#8b5cf6', '#ffffff']}
+          />
+        </div>
