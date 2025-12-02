@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { User, Lock } from "lucide-react";
 
+// --- AuthLayout Component ---
 const AuthLayout = ({ children, title, subtitle }) => {
     const [isLoaded, setIsLoaded] = useState(false);
 
@@ -34,7 +36,7 @@ const AuthLayout = ({ children, title, subtitle }) => {
                                 {/* Spline Viewer - Full Screen Background with Dramatic Entrance */}
                 <div className={`absolute inset-x-0 top-0 h-[120%] transition-all duration-[1500ms] ease-out transform ${isLoaded ? 'opacity-100 scale-100 blur-0' : 'opacity-0 scale-110 blur-lg'}`}>
                      {/* UPDATED SPLINE URL HERE */}
-                     <spline-viewer
+                     <spline-viewer 
                         url="https://prod.spline.design/SNzyYbJwaar5fagc/scene.splinecode"
                         style={{ width: '100%', height: '100%' }}
                     />
@@ -75,4 +77,49 @@ const AuthLayout = ({ children, title, subtitle }) => {
     );
 };
 
-export default AuthLayout;
+// --- Main App Component (Example Usage) ---
+export default function App() {
+    return (
+        <AuthLayout 
+            title="Welcome Back" 
+            subtitle="Enter your credentials to access your account"
+        >
+            <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
+                <div className="space-y-2">
+                    <label className="text-xs font-medium text-slate-300 ml-1">Email Address</label>
+                    <div className="relative group">
+                        <User className="absolute left-3 top-3.5 h-5 w-5 text-slate-500 group-focus-within:text-violet-400 transition-colors" />
+                        <input 
+                            type="email" 
+                            placeholder="name@example.com" 
+                            className="w-full bg-white/5 border border-white/10 rounded-xl px-10 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-500/50 focus:border-violet-500/50 transition-all hover:bg-white/10"
+                        />
+                    </div>
+                </div>
+
+                <div className="space-y-2">
+                    <div className="flex justify-between ml-1">
+                        <label className="text-xs font-medium text-slate-300">Password</label>
+                        <a href="#" className="text-xs text-violet-400 hover:text-violet-300 transition-colors">Forgot password?</a>
+                    </div>
+                    <div className="relative group">
+                        <Lock className="absolute left-3 top-3.5 h-5 w-5 text-slate-500 group-focus-within:text-violet-400 transition-colors" />
+                        <input 
+                            type="password" 
+                            placeholder="••••••••" 
+                            className="w-full bg-white/5 border border-white/10 rounded-xl px-10 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-500/50 focus:border-violet-500/50 transition-all hover:bg-white/10"
+                        />
+                    </div>
+                </div>
+
+                <button className="w-full bg-violet-600 hover:bg-violet-500 text-white font-medium py-3 rounded-xl transition-all shadow-[0_0_20px_-5px_rgba(124,58,237,0.5)] hover:shadow-[0_0_25px_-5px_rgba(124,58,237,0.7)] mt-2">
+                    Sign In
+                </button>
+
+                <p className="text-center text-xs text-slate-500 mt-6">
+                    Don't have an account? <a href="#" className="text-violet-400 hover:text-violet-300 transition-colors">Create one</a>
+                </p>
+            </form>
+        </AuthLayout>
+    );
+}

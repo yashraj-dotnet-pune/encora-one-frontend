@@ -50,7 +50,7 @@ const teamMembers = [
  
 const SectionHeader = ({ title, subtitle }) => (
   <div className="text-center mb-20 relative z-10">
-    <motion.h2
+    <motion.h2 
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -131,11 +131,11 @@ const AboutPage = () => {
      
       {/* --- HERO SECTION --- */}
       <div className="relative w-full h-screen overflow-hidden bg-[#050505]">
-       
+        
         {/* 1. Spline 3D Viewer Background (Hero) */}
         {/* h-[115%] pushes watermark off screen */}
         <div className={`absolute inset-x-0 top-0 h-[115%] z-0 transition-all duration-[1500ms] ease-out transform ${isLoaded ? 'opacity-100 scale-100 blur-0' : 'opacity-0 scale-110 blur-lg'}`}>
-          <spline-viewer
+          <spline-viewer 
             url="https://prod.spline.design/PXx275Yj23goXwsK/scene.splinecode"
             style={{ width: '100%', height: '100%' }}
           />
@@ -290,12 +290,12 @@ const AboutPage = () => {
           </div>
         </div>
       </section>
- 
+
       {/* 5. TECH STACK (SEPARATED FROM ROBOT) */}
       <section className="py-32 px-6 border-t border-white/10 bg-[#080808]">
         <div className="max-w-5xl mx-auto text-center">
           <h2 className="text-3xl font-bold text-white mb-16 drop-shadow-lg">Powered By Modern Engineering</h2>
-         
+          
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             <TechCard title="Frontend" stack="React + Tailwind + Framer" icon={Code2} />
             <TechCard title="Backend API" stack=".NET 8 Core Web API" icon={Server} />
@@ -304,21 +304,21 @@ const AboutPage = () => {
           </div>
         </div>
       </section>
- 
+
       {/* 6. BOTTOM ROBOT VISUAL SECTION + FOOTER TEXT OVERLAY */}
       <div className="relative w-full h-[600px] overflow-hidden bg-[#050505] border-t border-white/5">
          
          {/* Spline Viewer Container - Scaled to hide watermark */}
          <div className={`absolute inset-x-0 top-0 h-[120%] transition-all duration-[2000ms] ${isLoaded ? 'opacity-100 blur-0' : 'opacity-0 blur-lg'}`}>
-           <spline-viewer
+           <spline-viewer 
               url="https://prod.spline.design/a6XkQdgy5sjlsweN/scene.splinecode"
               style={{ width: '100%', height: '100%' }}
            />
         </div>
- 
+
         {/* Vignette to blend edges */}
         <div className="absolute inset-0 pointer-events-none bg-radial-gradient-fade" />
- 
+
         {/* COPYRIGHT OVERLAY (No Background, No Footer) */}
         <div className="absolute bottom-10 inset-x-0 z-20 pointer-events-none flex justify-center">
             <p className="text-slate-500 text-xs font-medium uppercase tracking-[0.2em] opacity-80 mix-blend-screen">
@@ -326,14 +326,14 @@ const AboutPage = () => {
             </p>
         </div>
       </div>
- 
+
       <style>{`
         .bg-radial-gradient-fade {
             background: radial-gradient(circle at center, transparent 0%, #050505 100%);
             opacity: 0.4;
         }
       `}</style>
- 
+
     </div>
   );
 };
